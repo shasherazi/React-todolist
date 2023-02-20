@@ -1,12 +1,12 @@
 const TodoItem = ({ id, todo, completed, onChange, onDelete }) => {
   return (
-    <li>
+    <li className='todo-item'>
       <input
         type='checkbox'
         checked={completed}
         onChange={() => onChange(id)}
       />
-      {todo}
+      <p className='todo-text'>{todo}</p>
       <button onClick={() => onDelete(id)}>Delete</button>
     </li>
   );

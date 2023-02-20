@@ -3,8 +3,8 @@ import ToDoList from './components/ToDoList';
 
 const App = () => {
   return (
-    <div className='App'>
-      <h1 className='ToDoList'>ToDo List</h1>
+    <div className='app'>
+      <h1 className='todo-heading'>ToDo List</h1>
       <ToDoList />
     </div>
   );

@@ -1,16 +1,16 @@
 import Input from './Input';
 import TodoItem from './ToDoItem';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ToDoList = () => {
-  const [todos, setTodos] = useState([
-    { id: 1, title: 'Start ToDo App', completed: true },
-    { id: 2, title: 'Finish ToDo App', completed: false },
-    { id: 3, title: 'Learn React Hooks', completed: false },
-    { id: 4, title: 'Learn React Router', completed: false },
-    { id: 5, title: 'Learn React Context', completed: false },
-    { id: 6, title: 'Learn React Redux', completed: false },
-  ]);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem('todos')) || []
+  );
+
+  useEffect(() => {
+    const data = JSON.stringify(todos);
+    localStorage.setItem('todos', data);
+  }, [todos]);
 
   const addItem = (title) => {
     setTodos([...todos, { id: todos.length + 1, title, completed: false }]);

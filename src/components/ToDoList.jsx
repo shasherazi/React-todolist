@@ -1,3 +1,4 @@
+import Input from './Input';
 import TodoItem from './ToDoItem';
 import { useState } from 'react';
 
@@ -10,6 +11,10 @@ const ToDoList = () => {
     { id: 5, title: 'Learn React Context', completed: false },
     { id: 6, title: 'Learn React Redux', completed: false },
   ]);
+
+  const addItem = (title) => {
+    setTodos([...todos, { id: todos.length + 1, title, completed: false }]);
+  };
 
   const handleChange = (id) => {
     setTodos(
@@ -31,6 +36,7 @@ const ToDoList = () => {
 
   return (
     <div className='ToDoList'>
+      <Input addItem={addItem} />
       <ul className='todo-list'>
         {todos.map((todo) => (
           <TodoItem

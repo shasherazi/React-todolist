@@ -1,10 +1,10 @@
+import { useState, useEffect } from 'react';
 import Input from './Input';
 import TodoItem from './ToDoItem';
-import { useState, useEffect } from 'react';
 
 const ToDoList = () => {
   const [todos, setTodos] = useState(
-    JSON.parse(localStorage.getItem('todos')) || []
+    JSON.parse(localStorage.getItem('todos')) || [],
   );
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const ToDoList = () => {
           };
         }
         return todo;
-      })
+      }),
     );
   };
 
@@ -40,7 +40,7 @@ const ToDoList = () => {
           };
         }
         return todo;
-      })
+      }),
     );
   };
 
@@ -49,9 +49,9 @@ const ToDoList = () => {
   };
 
   return (
-    <div className='ToDoList'>
+    <div className="ToDoList">
       <Input addItem={addItem} />
-      <ul className='todo-list'>
+      <ul className="todo-list">
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}

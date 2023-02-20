@@ -30,6 +30,20 @@ const ToDoList = () => {
     );
   };
 
+  const handleChangeEdit = (id, title) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title,
+          };
+        }
+        return todo;
+      })
+    );
+  };
+
   const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -46,6 +60,7 @@ const ToDoList = () => {
             completed={todo.completed}
             onChange={handleChange}
             onDelete={handleDelete}
+            onChangeEdit={handleChangeEdit}
           />
         ))}
       </ul>
